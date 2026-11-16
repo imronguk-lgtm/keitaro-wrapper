@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keitaro wrapper</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>Keitaro wrapper</h1>
+  <nav>
+    <button class="tab active" data-tab="create">Создать кампанию</button>
+    <button class="tab" data-tab="edit">Редактор</button>
+  </nav>
+</header>
+
+<main>
+  <section id="tab-create">
+    <form id="create-form" class="card">
+      <label>Название кампании
+        <input name="name" required placeholder="test_ivanov_campaign1">
+      </label>
+      <label>Страна (ISO-код) — её посетители уйдут на Google
+        <input name="country" required maxlength="2" placeholder="AU">
+      </label>
+      <label>Оффер
+        <div class="search">
+          <input class="offer-search" placeholder="ID или название оффера" autocomplete="off">
+          <input type="hidden" name="offer_id">
+          <ul class="suggest"></ul>
+        </div>
+      </label>
+      <label>Домен <select name="domain_id" required></select></label>
+      <label>Группа <select name="group_id" required></select></label>
+      <label>Источник <select name="source_id" required></select></label>
+      <button type="submit" class="primary">Создать</button>
+      <p class="msg" id="create-msg"></p>
+    </form>
+  </section>
+
+  <section id="tab-edit" hidden>
+    <div class="card row">
+      <input id="campaign-id" type="number" min="1" placeholder="ID кампании в Keitaro">
+      <button id="fetch-btn" class="primary">Fetch streams</button>
+      <select id="known-campaigns"><option value="">— загруженные ранее —</option></select>
+    </div>
+    <p class="msg" id="edit-msg"></p>
+    <div id="campaign"></div>
+  </section>
+</main>
+
+<template id="stream-tpl">
+  <div class="stream card">
+    <div class="stream-head">
+      <div><b class="stream-name"></b> <span class="muted stream-id"></span></div>
+      <div class="stream-actions">
+        <button class="push primary">Push to Keitaro</button>
+        <button class="cancel">Cancel</button>
+      </div>
+    </div>
+    <table class="offers"><thead><tr><th>Оффер</th><th>Вес</th><th>В Keitaro</th><th></th></tr></thead><tbody></tbody></table>
+    <div class="add-row search">
+      <input class="offer-search" placeholder="Добавить оффер: ID или название" autocomplete="off">
+      <ul class="suggest"></ul>
+    </div>
+  </div>
+</template>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
