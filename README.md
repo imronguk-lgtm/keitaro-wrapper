@@ -28,7 +28,7 @@ uvicorn app.main:app --reload
 
 | Переменная | Что это |
 |---|---|
-| `KEITARO_URL` | адрес трекера без `/admin`, например `https://tlgk.host` |
+| `KEITARO_URL` | адрес трекера без `/admin`; учебный стенд — `https://keitaro-for-tests.etolegko.com` |
 | `KEITARO_API_KEY` | ключ Admin API, берётся в админке Keitaro |
 | `DATABASE_URL` | база обёртки. По умолчанию SQLite-файл `wrapper.db`, подойдёт и Postgres |
 | `CAMPAIGN_PREFIX` | обязательный префикс названия кампании, например `test_ivanov_` |

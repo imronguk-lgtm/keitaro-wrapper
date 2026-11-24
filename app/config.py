@@ -6,7 +6,7 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
-    keitaro_url: str = "https://tlgk.host"  # адрес трекера без /admin
+    keitaro_url: str = "https://keitaro-for-tests.etolegko.com"  # адрес трекера без /admin
     keitaro_api_key: str = ""  # ключ из админки Keitaro: Обслуживание → Admin API
     database_url: str = "sqlite:///./wrapper.db"
 

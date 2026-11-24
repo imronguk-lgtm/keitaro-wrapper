@@ -49,7 +49,7 @@ def offer_stream_payload(campaign_id: int, offer_id: int) -> dict:
     """Поток 2: все остальные → оффер."""
     return {
         "campaign_id": campaign_id,
-        "type": "regular",
+        "type": "default",  # поток по умолчанию: ловит всех, кого не поймал гео-фильтр
         "name": "Offers",
         "position": 2,
         "state": "active",
